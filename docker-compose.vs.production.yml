@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  batch-notification:
+    logging:
+      options:
+        max-size: 10m
+    image: ${DOCKER_REGISTRY:-mc}/batch-notification:${PLATFORM:-linux}-${TAG:-latest}
+    ports:
+      - "7021:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      SQL_CONNECTION: ${PRODUCTION_SQL_CONNECTION}
+      RABBIT_PASSWORD: ${PRODUCTION_RABBIT_PASSWORD}
+      REDIS_PASSWORD: ${PRODUCTION_REDIS_PASSWORD}
+      TZ: 'Asia/Tehran'
+      PGTZ: 'Asia/Tehran'

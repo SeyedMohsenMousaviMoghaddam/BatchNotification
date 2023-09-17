@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  batch-notification:
+    container_name: batch-notification
+    build:
+      context: .
+      dockerfile: src/BatchNotification.Api/Dockerfile
+    networks:
+      - shared_network
+    restart: always
+    volumes:
+      - ./src/BatchNotification.Api/appsettings.json:/app/appsettings.json  
+networks:
+  shared_network:
+    external: true

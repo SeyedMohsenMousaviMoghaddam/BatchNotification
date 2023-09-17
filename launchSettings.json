@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "batch-notification",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/index.html",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "batch-notification": "StartDebugging"
+      }
+    }
+  }
+}

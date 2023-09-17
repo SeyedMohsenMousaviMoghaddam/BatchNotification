@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  batch-notification:
+    image: ${DOCKER_REGISTRY:-mc}/batch-notification:${PLATFORM:-linux}-${TAG:-latest}
+    ports:
+      - "57870:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
